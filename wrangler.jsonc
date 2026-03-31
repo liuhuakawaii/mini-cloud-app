@@ -4,7 +4,7 @@
  */
 {
 	"$schema": "node_modules/wrangler/config-schema.json",
-	"name": "round-hill-cbc6",
+	"name": "mini-cloud-app",
 	"main": "worker/index.ts",
 	"compatibility_date": "2026-03-17",
 	"assets": {
