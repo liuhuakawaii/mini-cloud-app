@@ -68,3 +68,52 @@
   color: #888;
   font-size: 0.85em;
 }
+
+.subtitle {
+  color: #888;
+  margin-top: -1em;
+  margin-bottom: 2em;
+}
+
+.btn-view {
+  padding: 0.4em 0.8em;
+  font-size: 0.9em;
+  background-color: #646cff;
+  color: white;
+}
+
+.btn-view:hover {
+  background-color: #535bf2;
+}
+
+.btn-close {
+  margin-left: auto;
+  padding: 0.3em 0.6em;
+  font-size: 0.8em;
+  background-color: transparent;
+  border: 1px solid #666;
+}
+
+.card h2 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.file-content {
+  padding: 1em;
+  border-radius: 6px;
+  background-color: rgba(0, 0, 0, 0.3);
+  white-space: pre-wrap;
+  word-break: break-all;
+  font-family: monospace;
+  font-size: 0.9em;
+  max-height: 300px;
+  overflow: auto;
+}
+
+@media (prefers-color-scheme: light) {
+  .file-content {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+}

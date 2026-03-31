@@ -18,22 +18,17 @@
 			"binding": "mini_cloud_db",
 			"database_name": "mini-cloud-db",
 			"database_id": "8c4286d0-5404-4aec-87ea-230143b7c76a",
-			"remote": true
+			// "remote": true
 		}
 	],
 	"kv_namespaces": [
 		{
 			"binding": "mini_cloud_cache",
 			"id": "64f440de73204db1b669c5258e29d174",
-			"remote": true
+			// "remote": true
 		}
 	],
-	"r2_buckets": [
-		{
-			"binding": "BUCKET",
-			"bucket_name": "mini-cloud-bucket"
-		}
-	],
+	"r2_buckets": [],
 	"observability": {
 		"enabled": true
 	},
