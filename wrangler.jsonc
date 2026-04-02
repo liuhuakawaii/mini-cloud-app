@@ -4,12 +4,12 @@
  */
 {
 	"$schema": "node_modules/wrangler/config-schema.json",
-	"name": "mini-cloud-app",
-	"main": "worker/index.ts",
-	"compatibility_date": "2026-03-17",
+	"name": "mini-cloud-app",  //Worker 名字（部署后对应服务名）
+	"main": "worker/index.ts",  //入口文件
+	"compatibility_date": "2026-03-17", // API 版本锁
 	// 前端：使用 Workers 资产托管（等价于一个小型 Pages），自动走 Cloudflare 全局 CDN
 	"assets": {
-		"not_found_handling": "single-page-application"
+		"not_found_handling": "single-page-application"   //自动托管 /public 或构建产物  ,所有 404 请求 fallback 到 index.html
 	},
 	// D1 / KV / R2 绑定配置
 	// ⚠️ 下面三个 binding 的 id/database_id/bucket_name 需要你在 Cloudflare Dashboard 或 wrangler CLI 创建后填入
@@ -18,14 +18,14 @@
 			"binding": "mini_cloud_db",
 			"database_name": "mini-cloud-db",
 			"database_id": "8c4286d0-5404-4aec-87ea-230143b7c76a",
-			// "remote": true
+			"remote": true
 		}
 	],
 	"kv_namespaces": [
 		{
 			"binding": "mini_cloud_cache",
 			"id": "64f440de73204db1b669c5258e29d174",
-			// "remote": true
+			"remote": true
 		}
 	],
 	"r2_buckets": [],

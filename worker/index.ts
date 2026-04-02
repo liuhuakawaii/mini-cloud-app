@@ -48,15 +48,20 @@ async function handleUpload(request: Request, env: Env) {
 
   const id = crypto.randomUUID()
 
-  // 直接存入 D1（不再使用 R2）
-  await env.mini_cloud_db.prepare(
-    'INSERT INTO files (id, name, content, created_at) VALUES (?1, ?2, ?3, datetime(\'now\'))',
-  )
-    .bind(id, body.name, body.content)
-    .run()
+  try {
+    // 直接存入 D1（不再使用 R2）
+    await env.mini_cloud_db.prepare(
+      'INSERT INTO files (id, name, content, created_at) VALUES (?1, ?2, ?3, datetime(\'now\'))',
+    )
+      .bind(id, body.name, body.content)
+      .run()
 
-  // 让列表缓存失效
-  await env.mini_cloud_cache.delete('files:list:v1')
+    // 让列表缓存失效
+    await env.mini_cloud_cache.delete('files:list:v1')
+  } catch (e) {
+    const message = e instanceof Error ? e.message : String(e)
+    return jsonResponse({ error: `上传失败: ${message}` }, { status: 500 })
+  }
 
   return jsonResponse({ id, name: body.name })
 }
